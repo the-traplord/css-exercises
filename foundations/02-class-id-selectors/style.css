@@ -1,0 +1,24 @@
+.one,
+.three,
+.five {
+    background-color: pink;
+    color: black;
+    font-size: 20px;
+}
+
+.three {
+    font-size: 30px;
+}
+
+#two {
+    color: blue;
+    font-size: 40px;
+    
+}
+
+#four {
+    color: black;
+    background-color: rgb(201, 229, 158);
+    font-size: 25px;
+    font-weight: bold;
+}

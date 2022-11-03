@@ -8,13 +8,45 @@ body{
   font-weight: 800;
 }
 
+.para {
+  font-size: 22px;
+}
+
 .small-para {
   font-size: 14px;
   font-weight: 800;
 }
 
-.para {
-  font-size: 22px;
+/* 
+ refering to lines 11 to 18, the original
+ order was as below:
+
+  .small-para {
+    font-size: 14px;
+    font-weight: 800;
+  }
+
+  .para {
+    font-size: 22px;
+  }
+
+The issue was that since the following 
+line had 2 class selectors, CSS took the order of the 
+class selectors and applied the second one to the below line
+
+<p class="para small-para">I'm a smaller paragraph, also with extra bold text!</p>
+
+the result was that the font size of 22px was applied, instead of 14px 
+
+*/
+
+
+.button {
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+  border-color: black;
+  border-width: 3px;
 }
 
 .confirm {
@@ -23,20 +55,57 @@ body{
   font-weight: bold;
 } 
 
-.button {
+/* 
+
+for .confirm and .button, the order was as follows
+
+
+  .confirm {
+  background: green;
+  color: white;
+  font-weight: bold;
+            }
+
+  .button {
   background-color: rgb(255, 255, 255);
   color: rgb(0, 0, 0);
   font-size: 20px;
-}
+  border-color: black;
+  border-width: 3px;
+          }
+  
+  .button toop preference over .confirm
+  and therefore no green was applied to
+  the confirm background. Switching order
+  made the result align to desired-outcome.png
 
-.child {
-  color: rgb(0, 0, 0);
-  font-weight: 800;
-  font-size: 14px;
-}
+*/
+
+
 
 div.text {
   color: rgb(0, 0, 0);
   font-size: 22px;
   font-weight: 100;
 }
+
+div.child {
+  color: rgb(0, 0, 0);
+  font-weight: 800;
+  font-size: 14px;
+}
+
+/* 
+
+originally .child was before .text, so 
+added .child after .text so 
+text does not override .child
+
+then added div to make div.child so that it
+would be able to be selected. 
+
+WIth this in place, applying the .chile only comes
+down to rule order, with the last one
+winning in getting applied
+
+*/
